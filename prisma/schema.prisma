@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Quiz {
+  id          Int           @id @default(autoincrement())
+  title       String
+  description String?
+  category    String?
+  difficulty  String?
+  published   Boolean       @default(true)
+  timeLimit   Int?
+  questions   Question[]
+  attempts    QuizAttempt[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Question {
+  id          Int             @id @default(autoincrement())
+  text        String
+  explanation String?
+  points      Int             @default(1)
+  quizId      Int
+  quiz        Quiz            @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  choices     Choice[]
+  answers     AttemptAnswer[]
+  @@index([quizId])
+}
+
+model Choice {
+  id         Int      @id @default(autoincrement())
+  text       String
+  isCorrect  Boolean  @default(false)
+  questionId Int
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  selectedIn AttemptAnswer[] @relation("SelectedChoice")
+  correctIn  AttemptAnswer[] @relation("CorrectChoice")
+  @@index([questionId])
+}
+
+model QuizAttempt {
+  id              Int             @id @default(autoincrement())
+  quizId          Int
+  totalQuestions  Int
+  correctAnswers  Int
+  incorrectAnswers Int
+  score           Int
+  percentage      Float
+  startedAt       DateTime?
+  completedAt     DateTime        @default(now())
+  quiz            Quiz            @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  answers         AttemptAnswer[]
+  @@index([quizId, completedAt])
+}
+
+model AttemptAnswer {
+  id               Int          @id @default(autoincrement())
+  attemptId        Int
+  questionId       Int
+  selectedChoiceId Int?
+  correctChoiceId  Int
+  isCorrect        Boolean
+  attempt          QuizAttempt  @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  question         Question     @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  selectedChoice   Choice?      @relation("SelectedChoice", fields: [selectedChoiceId], references: [id], onDelete: SetNull)
+  correctChoice   Choice       @relation("CorrectChoice", fields: [correctChoiceId], references: [id], onDelete: Restrict)
+  @@unique([attemptId, questionId])
+  @@index([questionId])
+}
