@@ -61,21 +61,7 @@ export type LogOptions<ClientOptions extends Prisma.PrismaClientOptions> =
   'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never
 
 export interface PrismaClientConstructor {
-    /**
-   * ## Prisma Client
-   * 
-   * Type-safe database client for TypeScript
-   * @example
-   * ```
-   * const prisma = new PrismaClient({
-   *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
-   * })
-   * // Fetch zero or more Quizzes
-   * const quizzes = await prisma.quiz.findMany()
-   * ```
-   * 
-   * Read more in our [docs](https://pris.ly/d/client).
-   */
+
 
   new <
     Options extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
@@ -85,21 +71,7 @@ export interface PrismaClientConstructor {
   >(options: Prisma.PrismaClientConstructorArgs<Options>): PrismaClient<LogOpts, OmitOpts, ExtArgs>
 }
 
-/**
- * ## Prisma Client
- * 
- * Type-safe database client for TypeScript
- * @example
- * ```
- * const prisma = new PrismaClient({
- *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
- * })
- * // Fetch zero or more Quizzes
- * const quizzes = await prisma.quiz.findMany()
- * ```
- * 
- * Read more in our [docs](https://pris.ly/d/client).
- */
+
 
 export interface PrismaClient<
   in LogOpts extends Prisma.LogLevel = never,
@@ -110,14 +82,9 @@ export interface PrismaClient<
 
   $on<V extends LogOpts>(eventType: V, callback: (event: V extends 'query' ? Prisma.QueryEvent : Prisma.LogEvent) => void): PrismaClient;
 
-  /**
-   * Connect with the database
-   */
+  
   $connect(): runtime.Types.Utils.JsPromise<void>;
 
-  /**
-   * Disconnect from the database
-   */
   $disconnect(): runtime.Types.Utils.JsPromise<void>;
 
 /**
@@ -167,19 +134,7 @@ export interface PrismaClient<
   $queryRawUnsafe<T = unknown>(query: string, ...values: any[]): Prisma.PrismaPromise<T>;
 
 
-  /**
-   * Allows the running of a sequence of read/write operations that are guaranteed to either succeed or fail as a whole.
-   * @example
-   * ```
-   * const [george, bob, alice] = await prisma.$transaction([
-   *   prisma.user.create({ data: { name: 'George' } }),
-   *   prisma.user.create({ data: { name: 'Bob' } }),
-   *   prisma.user.create({ data: { name: 'Alice' } }),
-   * ])
-   * ```
-   * 
-   * Read more in our [docs](https://www.prisma.io/docs/orm/prisma-client/queries/transactions).
-   */
+
   $transaction<P extends Prisma.PrismaPromise<any>[]>(arg: [...P], options?: { maxWait?: number, timeout?: number, isolationLevel?: Prisma.TransactionIsolationLevel }): runtime.Types.Utils.JsPromise<runtime.Types.Utils.UnwrapTuple<P>>
 
   $transaction<R>(fn: (prisma: Omit<PrismaClient, runtime.ITXClientDenyList>) => runtime.Types.Utils.JsPromise<R>, options?: { maxWait?: number, timeout?: number, isolationLevel?: Prisma.TransactionIsolationLevel }): runtime.Types.Utils.JsPromise<R>
@@ -188,54 +143,20 @@ export interface PrismaClient<
     extArgs: ExtArgs
   }>>
 
-      /**
-   * `prisma.quiz`: Exposes CRUD operations for the **Quiz** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Quizzes
-    * const quizzes = await prisma.quiz.findMany()
-    * ```
-    */
+    
   get quiz(): Prisma.QuizDelegate<ExtArgs, { omit: OmitOpts }>;
 
-  /**
-   * `prisma.question`: Exposes CRUD operations for the **Question** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Questions
-    * const questions = await prisma.question.findMany()
-    * ```
-    */
+ 
   get question(): Prisma.QuestionDelegate<ExtArgs, { omit: OmitOpts }>;
 
-  /**
-   * `prisma.choice`: Exposes CRUD operations for the **Choice** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Choices
-    * const choices = await prisma.choice.findMany()
-    * ```
-    */
+  
   get choice(): Prisma.ChoiceDelegate<ExtArgs, { omit: OmitOpts }>;
 
-  /**
-   * `prisma.quizAttempt`: Exposes CRUD operations for the **QuizAttempt** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more QuizAttempts
-    * const quizAttempts = await prisma.quizAttempt.findMany()
-    * ```
-    */
+
   get quizAttempt(): Prisma.QuizAttemptDelegate<ExtArgs, { omit: OmitOpts }>;
 
-  /**
-   * `prisma.attemptAnswer`: Exposes CRUD operations for the **AttemptAnswer** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more AttemptAnswers
-    * const attemptAnswers = await prisma.attemptAnswer.findMany()
-    * ```
-    */
+  
+    
   get attemptAnswer(): Prisma.AttemptAnswerDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
