@@ -12,10 +12,7 @@ import type * as runtime from "@prisma/client/runtime/client"
 import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
-/**
- * Model AttemptAnswer
- * 
- */
+
 export type AttemptAnswerModel = runtime.Types.Result.DefaultSelection<Prisma.$AttemptAnswerPayload>
 
 export type AggregateAttemptAnswer = {
@@ -116,63 +113,25 @@ export type AttemptAnswerCountAggregateInputType = {
 }
 
 export type AttemptAnswerAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Filter which AttemptAnswer to aggregate.
-   */
+  
   where?: Prisma.AttemptAnswerWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   * 
-   * Determine the order of AttemptAnswers to fetch.
-   */
+ 
   orderBy?: Prisma.AttemptAnswerOrderByWithRelationInput | Prisma.AttemptAnswerOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   * 
-   * Sets the start position
-   */
+ 
   cursor?: Prisma.AttemptAnswerWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Take `±n` AttemptAnswers from the position of the cursor.
-   */
+  
   take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Skip the first `n` AttemptAnswers.
-   */
+  
   skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Count returned AttemptAnswers
-  **/
+ 
   _count?: true | AttemptAnswerCountAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to average
-  **/
+  
   _avg?: AttemptAnswerAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
+ 
   _sum?: AttemptAnswerSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to find the minimum value
-  **/
+ 
   _min?: AttemptAnswerMinAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to find the maximum value
-  **/
+  
   _max?: AttemptAnswerMaxAggregateInputType
 }
 
@@ -982,261 +941,35 @@ export type AttemptAnswerCountArgs<ExtArgs extends runtime.Types.Extensions.Inte
 
 export interface AttemptAnswerDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['AttemptAnswer'], meta: { name: 'AttemptAnswer' } }
-  /**
-   * Find zero or one AttemptAnswer that matches the filter.
-   * @param {AttemptAnswerFindUniqueArgs} args - Arguments to find a AttemptAnswer
-   * @example
-   * // Get one AttemptAnswer
-   * const attemptAnswer = await prisma.attemptAnswer.findUnique({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
+ 
   findUnique<T extends AttemptAnswerFindUniqueArgs>(args: Prisma.SelectSubset<T, AttemptAnswerFindUniqueArgs<ExtArgs>>): Prisma.Prisma__AttemptAnswerClient<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Find one AttemptAnswer that matches the filter or throw an error with `error.code='P2025'`
-   * if no matches were found.
-   * @param {AttemptAnswerFindUniqueOrThrowArgs} args - Arguments to find a AttemptAnswer
-   * @example
-   * // Get one AttemptAnswer
-   * const attemptAnswer = await prisma.attemptAnswer.findUniqueOrThrow({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
   findUniqueOrThrow<T extends AttemptAnswerFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, AttemptAnswerFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__AttemptAnswerClient<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Find the first AttemptAnswer that matches the filter.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {AttemptAnswerFindFirstArgs} args - Arguments to find a AttemptAnswer
-   * @example
-   * // Get one AttemptAnswer
-   * const attemptAnswer = await prisma.attemptAnswer.findFirst({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
   findFirst<T extends AttemptAnswerFindFirstArgs>(args?: Prisma.SelectSubset<T, AttemptAnswerFindFirstArgs<ExtArgs>>): Prisma.Prisma__AttemptAnswerClient<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Find the first AttemptAnswer that matches the filter or
-   * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {AttemptAnswerFindFirstOrThrowArgs} args - Arguments to find a AttemptAnswer
-   * @example
-   * // Get one AttemptAnswer
-   * const attemptAnswer = await prisma.attemptAnswer.findFirstOrThrow({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
   findFirstOrThrow<T extends AttemptAnswerFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, AttemptAnswerFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__AttemptAnswerClient<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Find zero or more AttemptAnswers that matches the filter.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {AttemptAnswerFindManyArgs} args - Arguments to filter and select certain fields only.
-   * @example
-   * // Get all AttemptAnswers
-   * const attemptAnswers = await prisma.attemptAnswer.findMany()
-   * 
-   * // Get first 10 AttemptAnswers
-   * const attemptAnswers = await prisma.attemptAnswer.findMany({ take: 10 })
-   * 
-   * // Only select the `id`
-   * const attemptAnswerWithIdOnly = await prisma.attemptAnswer.findMany({ select: { id: true } })
-   * 
-   */
   findMany<T extends AttemptAnswerFindManyArgs>(args?: Prisma.SelectSubset<T, AttemptAnswerFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
-  /**
-   * Create a AttemptAnswer.
-   * @param {AttemptAnswerCreateArgs} args - Arguments to create a AttemptAnswer.
-   * @example
-   * // Create one AttemptAnswer
-   * const AttemptAnswer = await prisma.attemptAnswer.create({
-   *   data: {
-   *     // ... data to create a AttemptAnswer
-   *   }
-   * })
-   * 
-   */
   create<T extends AttemptAnswerCreateArgs>(args: Prisma.SelectSubset<T, AttemptAnswerCreateArgs<ExtArgs>>): Prisma.Prisma__AttemptAnswerClient<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Create many AttemptAnswers.
-   * @param {AttemptAnswerCreateManyArgs} args - Arguments to create many AttemptAnswers.
-   * @example
-   * // Create many AttemptAnswers
-   * const attemptAnswer = await prisma.attemptAnswer.createMany({
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   *     
-   */
   createMany<T extends AttemptAnswerCreateManyArgs>(args?: Prisma.SelectSubset<T, AttemptAnswerCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
-  /**
-   * Create many AttemptAnswers and returns the data saved in the database.
-   * @param {AttemptAnswerCreateManyAndReturnArgs} args - Arguments to create many AttemptAnswers.
-   * @example
-   * // Create many AttemptAnswers
-   * const attemptAnswer = await prisma.attemptAnswer.createManyAndReturn({
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   * 
-   * // Create many AttemptAnswers and only return the `id`
-   * const attemptAnswerWithIdOnly = await prisma.attemptAnswer.createManyAndReturn({
-   *   select: { id: true },
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * 
-   */
   createManyAndReturn<T extends AttemptAnswerCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, AttemptAnswerCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
-  /**
-   * Delete a AttemptAnswer.
-   * @param {AttemptAnswerDeleteArgs} args - Arguments to delete one AttemptAnswer.
-   * @example
-   * // Delete one AttemptAnswer
-   * const AttemptAnswer = await prisma.attemptAnswer.delete({
-   *   where: {
-   *     // ... filter to delete one AttemptAnswer
-   *   }
-   * })
-   * 
-   */
   delete<T extends AttemptAnswerDeleteArgs>(args: Prisma.SelectSubset<T, AttemptAnswerDeleteArgs<ExtArgs>>): Prisma.Prisma__AttemptAnswerClient<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Update one AttemptAnswer.
-   * @param {AttemptAnswerUpdateArgs} args - Arguments to update one AttemptAnswer.
-   * @example
-   * // Update one AttemptAnswer
-   * const attemptAnswer = await prisma.attemptAnswer.update({
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: {
-   *     // ... provide data here
-   *   }
-   * })
-   * 
-   */
   update<T extends AttemptAnswerUpdateArgs>(args: Prisma.SelectSubset<T, AttemptAnswerUpdateArgs<ExtArgs>>): Prisma.Prisma__AttemptAnswerClient<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Delete zero or more AttemptAnswers.
-   * @param {AttemptAnswerDeleteManyArgs} args - Arguments to filter AttemptAnswers to delete.
-   * @example
-   * // Delete a few AttemptAnswers
-   * const { count } = await prisma.attemptAnswer.deleteMany({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   * 
-   */
   deleteMany<T extends AttemptAnswerDeleteManyArgs>(args?: Prisma.SelectSubset<T, AttemptAnswerDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
-  /**
-   * Update zero or more AttemptAnswers.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {AttemptAnswerUpdateManyArgs} args - Arguments to update one or more rows.
-   * @example
-   * // Update many AttemptAnswers
-   * const attemptAnswer = await prisma.attemptAnswer.updateMany({
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: {
-   *     // ... provide data here
-   *   }
-   * })
-   * 
-   */
   updateMany<T extends AttemptAnswerUpdateManyArgs>(args: Prisma.SelectSubset<T, AttemptAnswerUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
-  /**
-   * Update zero or more AttemptAnswers and returns the data updated in the database.
-   * @param {AttemptAnswerUpdateManyAndReturnArgs} args - Arguments to update many AttemptAnswers.
-   * @example
-   * // Update many AttemptAnswers
-   * const attemptAnswer = await prisma.attemptAnswer.updateManyAndReturn({
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   * 
-   * // Update zero or more AttemptAnswers and only return the `id`
-   * const attemptAnswerWithIdOnly = await prisma.attemptAnswer.updateManyAndReturn({
-   *   select: { id: true },
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * 
-   */
   updateManyAndReturn<T extends AttemptAnswerUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, AttemptAnswerUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
-  /**
-   * Create or update one AttemptAnswer.
-   * @param {AttemptAnswerUpsertArgs} args - Arguments to update or create a AttemptAnswer.
-   * @example
-   * // Update or create a AttemptAnswer
-   * const attemptAnswer = await prisma.attemptAnswer.upsert({
-   *   create: {
-   *     // ... data to create a AttemptAnswer
-   *   },
-   *   update: {
-   *     // ... in case it already exists, update
-   *   },
-   *   where: {
-   *     // ... the filter for the AttemptAnswer we want to update
-   *   }
-   * })
-   */
   upsert<T extends AttemptAnswerUpsertArgs>(args: Prisma.SelectSubset<T, AttemptAnswerUpsertArgs<ExtArgs>>): Prisma.Prisma__AttemptAnswerClient<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-
-  /**
-   * Count the number of AttemptAnswers.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {AttemptAnswerCountArgs} args - Arguments to filter AttemptAnswers to count.
-   * @example
-   * // Count the number of AttemptAnswers
-   * const count = await prisma.attemptAnswer.count({
-   *   where: {
-   *     // ... the filter for the AttemptAnswers we want to count
-   *   }
-   * })
-  **/
   count<T extends AttemptAnswerCountArgs>(
     args?: Prisma.Subset<T, AttemptAnswerCountArgs>,
   ): Prisma.PrismaPromise<
@@ -1247,50 +980,9 @@ export interface AttemptAnswerDelegate<ExtArgs extends runtime.Types.Extensions.
       : number
   >
 
-  /**
-   * Allows you to perform aggregations operations on a AttemptAnswer.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {AttemptAnswerAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-   * @example
-   * // Ordered by age ascending
-   * // Where email contains prisma.io
-   * // Limited to the 10 users
-   * const aggregations = await prisma.user.aggregate({
-   *   _avg: {
-   *     age: true,
-   *   },
-   *   where: {
-   *     email: {
-   *       contains: "prisma.io",
-   *     },
-   *   },
-   *   orderBy: {
-   *     age: "asc",
-   *   },
-   *   take: 10,
-   * })
-  **/
+
   aggregate<T extends AttemptAnswerAggregateArgs>(args: Prisma.Subset<T, AttemptAnswerAggregateArgs>): Prisma.PrismaPromise<GetAttemptAnswerAggregateType<T>>
 
-  /**
-   * Group by AttemptAnswer.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {AttemptAnswerGroupByArgs} args - Group by arguments.
-   * @example
-   * // Group by city, order by createdAt, get count
-   * const result = await prisma.user.groupBy({
-   *   by: ['city', 'createdAt'],
-   *   orderBy: {
-   *     createdAt: true
-   *   },
-   *   _count: {
-   *     _all: true
-   *   },
-   * })
-   * 
-  **/
   groupBy<
     T extends AttemptAnswerGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
@@ -1349,52 +1041,23 @@ export interface AttemptAnswerDelegate<ExtArgs extends runtime.Types.Extensions.
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
   >(args: Prisma.SubsetIntersection<T, AttemptAnswerGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAttemptAnswerGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-/**
- * Fields of the AttemptAnswer model
- */
-readonly fields: AttemptAnswerFieldRefs;
-}
 
-/**
- * The delegate class that acts as a "Promise-like" for AttemptAnswer.
- * Why is this prefixed with `Prisma__`?
- * Because we want to prevent naming conflicts as mentioned in
- * https://github.com/prisma/prisma-client-js/issues/707
- */
-export interface Prisma__AttemptAnswerClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+readonly fields: AttemptAnswerFieldRefs;
+    }
+    export interface Prisma__AttemptAnswerClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   attempt<T extends Prisma.QuizAttemptDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.QuizAttemptDefaultArgs<ExtArgs>>): Prisma.Prisma__QuizAttemptClient<runtime.Types.Result.GetResult<Prisma.$QuizAttemptPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   question<T extends Prisma.QuestionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.QuestionDefaultArgs<ExtArgs>>): Prisma.Prisma__QuestionClient<runtime.Types.Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   selectedChoice<T extends Prisma.AttemptAnswer$selectedChoiceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AttemptAnswer$selectedChoiceArgs<ExtArgs>>): Prisma.Prisma__ChoiceClient<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   correctChoice<T extends Prisma.ChoiceDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ChoiceDefaultArgs<ExtArgs>>): Prisma.Prisma__ChoiceClient<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  /**
-   * Attaches callbacks for the resolution and/or rejection of the Promise.
-   * @param onfulfilled The callback to execute when the Promise is resolved.
-   * @param onrejected The callback to execute when the Promise is rejected.
-   * @returns A Promise for the completion of which ever callback is executed.
-   */
+ 
   then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>
-  /**
-   * Attaches a callback for only the rejection of the Promise.
-   * @param onrejected The callback to execute when the Promise is rejected.
-   * @returns A Promise for the completion of the callback.
-   */
+ 
   catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>
-  /**
-   * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-   * resolved value cannot be modified from the callback.
-   * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-   * @returns A Promise for the completion of the callback.
-   */
+ 
   finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>
 }
 
-
-
-
-/**
- * Fields of the AttemptAnswer model
- */
 export interface AttemptAnswerFieldRefs {
   readonly id: Prisma.FieldRef<"AttemptAnswer", 'Int'>
   readonly attemptId: Prisma.FieldRef<"AttemptAnswer", 'Int'>
@@ -1405,436 +1068,214 @@ export interface AttemptAnswerFieldRefs {
 }
     
 
-// Custom InputTypes
-/**
- * AttemptAnswer findUnique
- */
 export type AttemptAnswerFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+ 
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+  
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+  
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
-  /**
-   * Filter, which AttemptAnswer to fetch.
-   */
+
   where: Prisma.AttemptAnswerWhereUniqueInput
 }
 
-/**
- * AttemptAnswer findUniqueOrThrow
- */
 export type AttemptAnswerFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+  
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+  
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
-  /**
-   * Filter, which AttemptAnswer to fetch.
-   */
+  
   where: Prisma.AttemptAnswerWhereUniqueInput
 }
 
-/**
- * AttemptAnswer findFirst
- */
 export type AttemptAnswerFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+  
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+  
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+  
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
-  /**
-   * Filter, which AttemptAnswer to fetch.
-   */
+ 
   where?: Prisma.AttemptAnswerWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   * 
-   * Determine the order of AttemptAnswers to fetch.
-   */
+ 
   orderBy?: Prisma.AttemptAnswerOrderByWithRelationInput | Prisma.AttemptAnswerOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   * 
-   * Sets the position for searching for AttemptAnswers.
-   */
+ 
   cursor?: Prisma.AttemptAnswerWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Take `±n` AttemptAnswers from the position of the cursor.
-   */
+ 
   take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Skip the first `n` AttemptAnswers.
-   */
+  
   skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-   * 
-   * Filter by unique combinations of AttemptAnswers.
-   */
+ 
   distinct?: Prisma.AttemptAnswerScalarFieldEnum | Prisma.AttemptAnswerScalarFieldEnum[]
 }
 
-/**
- * AttemptAnswer findFirstOrThrow
- */
 export type AttemptAnswerFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+  
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+ 
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+  
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
-  /**
-   * Filter, which AttemptAnswer to fetch.
-   */
+  
   where?: Prisma.AttemptAnswerWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   * 
-   * Determine the order of AttemptAnswers to fetch.
-   */
+ 
   orderBy?: Prisma.AttemptAnswerOrderByWithRelationInput | Prisma.AttemptAnswerOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   * 
-   * Sets the position for searching for AttemptAnswers.
-   */
+ 
   cursor?: Prisma.AttemptAnswerWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Take `±n` AttemptAnswers from the position of the cursor.
-   */
+
   take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Skip the first `n` AttemptAnswers.
-   */
+  
   skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-   * 
-   * Filter by unique combinations of AttemptAnswers.
-   */
+ 
   distinct?: Prisma.AttemptAnswerScalarFieldEnum | Prisma.AttemptAnswerScalarFieldEnum[]
 }
 
-/**
- * AttemptAnswer findMany
- */
 export type AttemptAnswerFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+  
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+ 
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+ 
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
-  /**
-   * Filter, which AttemptAnswers to fetch.
-   */
+  
   where?: Prisma.AttemptAnswerWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   * 
-   * Determine the order of AttemptAnswers to fetch.
-   */
+  
   orderBy?: Prisma.AttemptAnswerOrderByWithRelationInput | Prisma.AttemptAnswerOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   * 
-   * Sets the position for listing AttemptAnswers.
-   */
+  
   cursor?: Prisma.AttemptAnswerWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Take `±n` AttemptAnswers from the position of the cursor.
-   */
+  
   take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Skip the first `n` AttemptAnswers.
-   */
+  
   skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-   * 
-   * Filter by unique combinations of AttemptAnswers.
-   */
+  
   distinct?: Prisma.AttemptAnswerScalarFieldEnum | Prisma.AttemptAnswerScalarFieldEnum[]
 }
 
-/**
- * AttemptAnswer create
- */
+   
 export type AttemptAnswerCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+  
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+ 
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
-  /**
-   * The data needed to create a AttemptAnswer.
-   */
+ 
   data: Prisma.XOR<Prisma.AttemptAnswerCreateInput, Prisma.AttemptAnswerUncheckedCreateInput>
 }
 
-/**
- * AttemptAnswer createMany
- */
+
 export type AttemptAnswerCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * The data used to create many AttemptAnswers.
-   */
+  
   data: Prisma.AttemptAnswerCreateManyInput | Prisma.AttemptAnswerCreateManyInput[]
   skipDuplicates?: boolean
 }
 
-/**
- * AttemptAnswer createManyAndReturn
- */
 export type AttemptAnswerCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+  
   select?: Prisma.AttemptAnswerSelectCreateManyAndReturn<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+  
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * The data used to create many AttemptAnswers.
-   */
+  
   data: Prisma.AttemptAnswerCreateManyInput | Prisma.AttemptAnswerCreateManyInput[]
   skipDuplicates?: boolean
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+
   include?: Prisma.AttemptAnswerIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
-/**
- * AttemptAnswer update
- */
 export type AttemptAnswerUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+ 
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+  
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+ 
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
-  /**
-   * The data needed to update a AttemptAnswer.
-   */
+  
   data: Prisma.XOR<Prisma.AttemptAnswerUpdateInput, Prisma.AttemptAnswerUncheckedUpdateInput>
-  /**
-   * Choose, which AttemptAnswer to update.
-   */
+   
   where: Prisma.AttemptAnswerWhereUniqueInput
 }
 
-/**
- * AttemptAnswer updateMany
- */
+ 
 export type AttemptAnswerUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * The data used to update AttemptAnswers.
-   */
+  
   data: Prisma.XOR<Prisma.AttemptAnswerUpdateManyMutationInput, Prisma.AttemptAnswerUncheckedUpdateManyInput>
-  /**
-   * Filter which AttemptAnswers to update
-   */
+ 
   where?: Prisma.AttemptAnswerWhereInput
-  /**
-   * Limit how many AttemptAnswers to update.
-   */
+   
   limit?: number
 }
 
-/**
- * AttemptAnswer updateManyAndReturn
- */
+ 
 export type AttemptAnswerUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+   
   select?: Prisma.AttemptAnswerSelectUpdateManyAndReturn<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+   
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * The data used to update AttemptAnswers.
-   */
+   
   data: Prisma.XOR<Prisma.AttemptAnswerUpdateManyMutationInput, Prisma.AttemptAnswerUncheckedUpdateManyInput>
-  /**
-   * Filter which AttemptAnswers to update
-   */
+   
   where?: Prisma.AttemptAnswerWhereInput
-  /**
-   * Limit how many AttemptAnswers to update.
-   */
+  
   limit?: number
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+   
   include?: Prisma.AttemptAnswerIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
-/**
- * AttemptAnswer upsert
- */
+ 
 export type AttemptAnswerUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+   
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+  
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+  
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
-  /**
-   * The filter to search for the AttemptAnswer to update in case it exists.
-   */
+   
   where: Prisma.AttemptAnswerWhereUniqueInput
-  /**
-   * In case the AttemptAnswer found by the `where` argument doesn't exist, create a new AttemptAnswer with this data.
-   */
+  
   create: Prisma.XOR<Prisma.AttemptAnswerCreateInput, Prisma.AttemptAnswerUncheckedCreateInput>
-  /**
-   * In case the AttemptAnswer was found with the provided `where` argument, update it with this data.
-   */
+   
   update: Prisma.XOR<Prisma.AttemptAnswerUpdateInput, Prisma.AttemptAnswerUncheckedUpdateInput>
 }
 
-/**
- * AttemptAnswer delete
- */
+ 
 export type AttemptAnswerDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+   
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+   
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+   
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
-  /**
-   * Filter which AttemptAnswer to delete.
-   */
+   
   where: Prisma.AttemptAnswerWhereUniqueInput
 }
 
-/**
- * AttemptAnswer deleteMany
- */
+ 
 export type AttemptAnswerDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Filter which AttemptAnswers to delete
-   */
+   
   where?: Prisma.AttemptAnswerWhereInput
-  /**
-   * Limit how many AttemptAnswers to delete.
-   */
+  
   limit?: number
 }
 
-/**
- * AttemptAnswer.selectedChoice
- */
+ 
 export type AttemptAnswer$selectedChoiceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+
   select?: Prisma.ChoiceSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+   
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+   
   include?: Prisma.ChoiceInclude<ExtArgs> | null
   where?: Prisma.ChoiceWhereInput
 }
 
-/**
- * AttemptAnswer without action
- */
+  
 export type AttemptAnswerDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+  
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+ 
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+  
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
 }

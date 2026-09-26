@@ -8,12 +8,14 @@ type QuizPageProps = {
   params: Promise<{
     id: string;
   }>;
+  searchParams: Promise<{ name?: string }>;
 };
 
 export default async function QuizPage({
   params,
+  searchParams,
 }: QuizPageProps) {
-  const { id } = await params;
+  const [{ id }, { name }] = await Promise.all([params, searchParams]);
 
   const quizId = Number(id);
 
@@ -25,34 +27,17 @@ export default async function QuizPage({
     where: {
       id: quizId,
     },
-    include: {
-      questions: {
-        orderBy: {
-          id: "asc",
-        },
-        include: {
-          choices: {
-            orderBy: {
-              id: "asc",
-            },
-            select: {
-              id: true,
-              text: true,
-            },
-          },
-        },
-      },
-    },
+    select: { id: true, title: true, published: true },
   });
 
-  if (!quiz) {
+  if (!quiz || !quiz.published) {
     notFound();
   }
 
   return (
-    <main className="min-h-screen bg-transparent px-6 py-10 text-white">
-      <div className="mx-auto max-w-4xl">
-        <QuizClient quiz={quiz} />
+    <main className="min-h-screen px-5 py-8 text-slate-900 sm:px-8">
+      <div className="mx-auto max-w-3xl">
+        <QuizClient quiz={{ id: quiz.id, title: quiz.title }} userName={name?.trim().slice(0, 40) ?? ""} />
       </div>
     </main>
   );

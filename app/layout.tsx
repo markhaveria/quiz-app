@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "QuizLab | Learn, challenge, improve",
-  description: "A focused quiz platform for building knowledge one question at a time.",
+  title: "Quiz App",
+  description: "Take a quick quiz, review your answers, and see your score.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

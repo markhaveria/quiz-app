@@ -10,11 +10,13 @@ export async function POST(request: Request) {
   try {
     const body = (await request.json()) as {
       quizId?: unknown;
+      userName?: unknown;
       answers?: SubmittedAnswer[];
     };
     const quizId = Number(body.quizId);
+    const userName = typeof body.userName === "string" ? body.userName.trim() : "";
 
-    if (!Number.isInteger(quizId) || quizId <= 0 || !Array.isArray(body.answers)) {
+    if (!Number.isInteger(quizId) || quizId <= 0 || userName.length === 0 || userName.length > 40 || !Array.isArray(body.answers)) {
       return NextResponse.json({ error: "Invalid quiz submission." }, { status: 400 });
     }
 
@@ -22,7 +24,12 @@ export async function POST(request: Request) {
       where: { id: quizId },
       include: {
         questions: {
-          include: { choices: true },
+          include: {
+            choices: {
+              orderBy: { id: "asc" },
+              take: 3,
+            },
+          },
           orderBy: { id: "asc" },
         },
       },
@@ -33,14 +40,18 @@ export async function POST(request: Request) {
     }
 
     if (quiz.questions.length === 0 || body.answers.length !== quiz.questions.length) {
-      return NextResponse.json({ error: "Please answer every question." }, { status: 400 });
+      return NextResponse.json({ error: "Answers do not match this quiz." }, { status: 400 });
     }
 
-    const submittedByQuestion = new Map<number, number>();
+    const submittedByQuestion = new Map<number, number | null>();
     for (const answer of body.answers) {
       const questionId = Number(answer.questionId);
-      const choiceId = Number(answer.choiceId);
-      if (!Number.isInteger(questionId) || !Number.isInteger(choiceId) || submittedByQuestion.has(questionId)) {
+      const choiceId = answer.choiceId === null ? null : Number(answer.choiceId);
+      if (
+        !Number.isInteger(questionId) ||
+        (choiceId !== null && !Number.isInteger(choiceId)) ||
+        submittedByQuestion.has(questionId)
+      ) {
         return NextResponse.json({ error: "Invalid or duplicate answer." }, { status: 400 });
       }
       submittedByQuestion.set(questionId, choiceId);
@@ -59,7 +70,7 @@ export async function POST(request: Request) {
       const correctChoice = question.choices.find((choice) => choice.isCorrect);
       const selectedChoice = question.choices.find((choice) => choice.id === selectedChoiceId);
 
-      if (!correctChoice || !selectedChoice || selectedChoiceId === undefined) {
+      if (!correctChoice || (selectedChoiceId !== null && !selectedChoice) || selectedChoiceId === undefined) {
         throw new Error("Quiz data is incomplete.");
       }
 
@@ -67,7 +78,7 @@ export async function POST(request: Request) {
         questionId: question.id,
         selectedChoiceId,
         correctChoiceId: correctChoice.id,
-        isCorrect: selectedChoiceId === correctChoice.id,
+        isCorrect: selectedChoiceId !== null && selectedChoiceId === correctChoice.id,
       };
     });
 
@@ -76,6 +87,7 @@ export async function POST(request: Request) {
     const attempt = await prisma.quizAttempt.create({
       data: {
         quizId,
+        userName,
         totalQuestions,
         correctAnswers,
         incorrectAnswers: totalQuestions - correctAnswers,
@@ -87,10 +99,11 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       attemptId: attempt.id,
-      results: scoredAnswers.map((answer) => ({
-        questionId: answer.questionId,
-        isCorrect: answer.isCorrect,
-      })),
+      score: attempt.score,
+      totalQuestions: attempt.totalQuestions,
+      correctAnswers: attempt.correctAnswers,
+      wrongAnswers: attempt.incorrectAnswers,
+      percentage: attempt.percentage,
     }, { status: 201 });
   } catch {
     return NextResponse.json({ error: "Unable to submit this quiz." }, { status: 500 });

@@ -12,10 +12,6 @@ import type * as runtime from "@prisma/client/runtime/client"
 import type * as $Enums from "../enums"
 import type * as Prisma from "../internal/prismaNamespace"
 
-/**
- * Model Choice
- * 
- */
 export type ChoiceModel = runtime.Types.Result.DefaultSelection<Prisma.$ChoicePayload>
 
 export type AggregateChoice = {
@@ -92,63 +88,25 @@ export type ChoiceCountAggregateInputType = {
 }
 
 export type ChoiceAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Filter which Choice to aggregate.
-   */
+
   where?: Prisma.ChoiceWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   * 
-   * Determine the order of Choices to fetch.
-   */
+
   orderBy?: Prisma.ChoiceOrderByWithRelationInput | Prisma.ChoiceOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   * 
-   * Sets the start position
-   */
+
   cursor?: Prisma.ChoiceWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Take `±n` Choices from the position of the cursor.
-   */
+ 
   take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Skip the first `n` Choices.
-   */
+ 
   skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Count returned Choices
-  **/
+
   _count?: true | ChoiceCountAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to average
-  **/
+
   _avg?: ChoiceAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
+ 
   _sum?: ChoiceSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to find the minimum value
-  **/
+  
   _min?: ChoiceMinAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to find the maximum value
-  **/
+
   _max?: ChoiceMaxAggregateInputType
 }
 
@@ -609,9 +567,6 @@ export type ChoiceUncheckedUpdateManyWithoutQuestionInput = {
 }
 
 
-/**
- * Count Type ChoiceCountOutputType
- */
 
 export type ChoiceCountOutputType = {
   selectedIn: number
@@ -623,26 +578,15 @@ export type ChoiceCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions
   correctIn?: boolean | ChoiceCountOutputTypeCountCorrectInArgs
 }
 
-/**
- * ChoiceCountOutputType without action
- */
 export type ChoiceCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the ChoiceCountOutputType
-   */
+
   select?: Prisma.ChoiceCountOutputTypeSelect<ExtArgs> | null
 }
 
-/**
- * ChoiceCountOutputType without action
- */
 export type ChoiceCountOutputTypeCountSelectedInArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.AttemptAnswerWhereInput
 }
 
-/**
- * ChoiceCountOutputType without action
- */
 export type ChoiceCountOutputTypeCountCorrectInArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.AttemptAnswerWhereInput
 }
@@ -721,261 +665,35 @@ export type ChoiceCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArg
 
 export interface ChoiceDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Choice'], meta: { name: 'Choice' } }
-  /**
-   * Find zero or one Choice that matches the filter.
-   * @param {ChoiceFindUniqueArgs} args - Arguments to find a Choice
-   * @example
-   * // Get one Choice
-   * const choice = await prisma.choice.findUnique({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
+
   findUnique<T extends ChoiceFindUniqueArgs>(args: Prisma.SelectSubset<T, ChoiceFindUniqueArgs<ExtArgs>>): Prisma.Prisma__ChoiceClient<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Find one Choice that matches the filter or throw an error with `error.code='P2025'`
-   * if no matches were found.
-   * @param {ChoiceFindUniqueOrThrowArgs} args - Arguments to find a Choice
-   * @example
-   * // Get one Choice
-   * const choice = await prisma.choice.findUniqueOrThrow({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
   findUniqueOrThrow<T extends ChoiceFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, ChoiceFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__ChoiceClient<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Find the first Choice that matches the filter.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {ChoiceFindFirstArgs} args - Arguments to find a Choice
-   * @example
-   * // Get one Choice
-   * const choice = await prisma.choice.findFirst({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
   findFirst<T extends ChoiceFindFirstArgs>(args?: Prisma.SelectSubset<T, ChoiceFindFirstArgs<ExtArgs>>): Prisma.Prisma__ChoiceClient<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Find the first Choice that matches the filter or
-   * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {ChoiceFindFirstOrThrowArgs} args - Arguments to find a Choice
-   * @example
-   * // Get one Choice
-   * const choice = await prisma.choice.findFirstOrThrow({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   */
   findFirstOrThrow<T extends ChoiceFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, ChoiceFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__ChoiceClient<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Find zero or more Choices that matches the filter.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {ChoiceFindManyArgs} args - Arguments to filter and select certain fields only.
-   * @example
-   * // Get all Choices
-   * const choices = await prisma.choice.findMany()
-   * 
-   * // Get first 10 Choices
-   * const choices = await prisma.choice.findMany({ take: 10 })
-   * 
-   * // Only select the `id`
-   * const choiceWithIdOnly = await prisma.choice.findMany({ select: { id: true } })
-   * 
-   */
   findMany<T extends ChoiceFindManyArgs>(args?: Prisma.SelectSubset<T, ChoiceFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
-  /**
-   * Create a Choice.
-   * @param {ChoiceCreateArgs} args - Arguments to create a Choice.
-   * @example
-   * // Create one Choice
-   * const Choice = await prisma.choice.create({
-   *   data: {
-   *     // ... data to create a Choice
-   *   }
-   * })
-   * 
-   */
   create<T extends ChoiceCreateArgs>(args: Prisma.SelectSubset<T, ChoiceCreateArgs<ExtArgs>>): Prisma.Prisma__ChoiceClient<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Create many Choices.
-   * @param {ChoiceCreateManyArgs} args - Arguments to create many Choices.
-   * @example
-   * // Create many Choices
-   * const choice = await prisma.choice.createMany({
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   *     
-   */
   createMany<T extends ChoiceCreateManyArgs>(args?: Prisma.SelectSubset<T, ChoiceCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
-  /**
-   * Create many Choices and returns the data saved in the database.
-   * @param {ChoiceCreateManyAndReturnArgs} args - Arguments to create many Choices.
-   * @example
-   * // Create many Choices
-   * const choice = await prisma.choice.createManyAndReturn({
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   * 
-   * // Create many Choices and only return the `id`
-   * const choiceWithIdOnly = await prisma.choice.createManyAndReturn({
-   *   select: { id: true },
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * 
-   */
   createManyAndReturn<T extends ChoiceCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, ChoiceCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
-  /**
-   * Delete a Choice.
-   * @param {ChoiceDeleteArgs} args - Arguments to delete one Choice.
-   * @example
-   * // Delete one Choice
-   * const Choice = await prisma.choice.delete({
-   *   where: {
-   *     // ... filter to delete one Choice
-   *   }
-   * })
-   * 
-   */
   delete<T extends ChoiceDeleteArgs>(args: Prisma.SelectSubset<T, ChoiceDeleteArgs<ExtArgs>>): Prisma.Prisma__ChoiceClient<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Update one Choice.
-   * @param {ChoiceUpdateArgs} args - Arguments to update one Choice.
-   * @example
-   * // Update one Choice
-   * const choice = await prisma.choice.update({
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: {
-   *     // ... provide data here
-   *   }
-   * })
-   * 
-   */
   update<T extends ChoiceUpdateArgs>(args: Prisma.SelectSubset<T, ChoiceUpdateArgs<ExtArgs>>): Prisma.Prisma__ChoiceClient<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-  /**
-   * Delete zero or more Choices.
-   * @param {ChoiceDeleteManyArgs} args - Arguments to filter Choices to delete.
-   * @example
-   * // Delete a few Choices
-   * const { count } = await prisma.choice.deleteMany({
-   *   where: {
-   *     // ... provide filter here
-   *   }
-   * })
-   * 
-   */
   deleteMany<T extends ChoiceDeleteManyArgs>(args?: Prisma.SelectSubset<T, ChoiceDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
-  /**
-   * Update zero or more Choices.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {ChoiceUpdateManyArgs} args - Arguments to update one or more rows.
-   * @example
-   * // Update many Choices
-   * const choice = await prisma.choice.updateMany({
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: {
-   *     // ... provide data here
-   *   }
-   * })
-   * 
-   */
   updateMany<T extends ChoiceUpdateManyArgs>(args: Prisma.SelectSubset<T, ChoiceUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>
 
-  /**
-   * Update zero or more Choices and returns the data updated in the database.
-   * @param {ChoiceUpdateManyAndReturnArgs} args - Arguments to update many Choices.
-   * @example
-   * // Update many Choices
-   * const choice = await prisma.choice.updateManyAndReturn({
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   * 
-   * // Update zero or more Choices and only return the `id`
-   * const choiceWithIdOnly = await prisma.choice.updateManyAndReturn({
-   *   select: { id: true },
-   *   where: {
-   *     // ... provide filter here
-   *   },
-   *   data: [
-   *     // ... provide data here
-   *   ]
-   * })
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * 
-   */
   updateManyAndReturn<T extends ChoiceUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, ChoiceUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
-  /**
-   * Create or update one Choice.
-   * @param {ChoiceUpsertArgs} args - Arguments to update or create a Choice.
-   * @example
-   * // Update or create a Choice
-   * const choice = await prisma.choice.upsert({
-   *   create: {
-   *     // ... data to create a Choice
-   *   },
-   *   update: {
-   *     // ... in case it already exists, update
-   *   },
-   *   where: {
-   *     // ... the filter for the Choice we want to update
-   *   }
-   * })
-   */
   upsert<T extends ChoiceUpsertArgs>(args: Prisma.SelectSubset<T, ChoiceUpsertArgs<ExtArgs>>): Prisma.Prisma__ChoiceClient<runtime.Types.Result.GetResult<Prisma.$ChoicePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
-
-  /**
-   * Count the number of Choices.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {ChoiceCountArgs} args - Arguments to filter Choices to count.
-   * @example
-   * // Count the number of Choices
-   * const count = await prisma.choice.count({
-   *   where: {
-   *     // ... the filter for the Choices we want to count
-   *   }
-   * })
-  **/
   count<T extends ChoiceCountArgs>(
     args?: Prisma.Subset<T, ChoiceCountArgs>,
   ): Prisma.PrismaPromise<
@@ -986,50 +704,8 @@ export interface ChoiceDelegate<ExtArgs extends runtime.Types.Extensions.Interna
       : number
   >
 
-  /**
-   * Allows you to perform aggregations operations on a Choice.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {ChoiceAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-   * @example
-   * // Ordered by age ascending
-   * // Where email contains prisma.io
-   * // Limited to the 10 users
-   * const aggregations = await prisma.user.aggregate({
-   *   _avg: {
-   *     age: true,
-   *   },
-   *   where: {
-   *     email: {
-   *       contains: "prisma.io",
-   *     },
-   *   },
-   *   orderBy: {
-   *     age: "asc",
-   *   },
-   *   take: 10,
-   * })
-  **/
   aggregate<T extends ChoiceAggregateArgs>(args: Prisma.Subset<T, ChoiceAggregateArgs>): Prisma.PrismaPromise<GetChoiceAggregateType<T>>
 
-  /**
-   * Group by Choice.
-   * Note, that providing `undefined` is treated as the value not being there.
-   * Read more here: https://pris.ly/d/null-undefined
-   * @param {ChoiceGroupByArgs} args - Group by arguments.
-   * @example
-   * // Group by city, order by createdAt, get count
-   * const result = await prisma.user.groupBy({
-   *   by: ['city', 'createdAt'],
-   *   orderBy: {
-   *     createdAt: true
-   *   },
-   *   _count: {
-   *     _all: true
-   *   },
-   * })
-   * 
-  **/
   groupBy<
     T extends ChoiceGroupByArgs,
     HasSelectOrTake extends Prisma.Or<
@@ -1088,51 +764,26 @@ export interface ChoiceDelegate<ExtArgs extends runtime.Types.Extensions.Interna
           : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
       }[OrderFields]
   >(args: Prisma.SubsetIntersection<T, ChoiceGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetChoiceGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-/**
- * Fields of the Choice model
- */
+
 readonly fields: ChoiceFieldRefs;
 }
 
-/**
- * The delegate class that acts as a "Promise-like" for Choice.
- * Why is this prefixed with `Prisma__`?
- * Because we want to prevent naming conflicts as mentioned in
- * https://github.com/prisma/prisma-client-js/issues/707
- */
 export interface Prisma__ChoiceClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   question<T extends Prisma.QuestionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.QuestionDefaultArgs<ExtArgs>>): Prisma.Prisma__QuestionClient<runtime.Types.Result.GetResult<Prisma.$QuestionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   selectedIn<T extends Prisma.Choice$selectedInArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Choice$selectedInArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   correctIn<T extends Prisma.Choice$correctInArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Choice$correctInArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AttemptAnswerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  /**
-   * Attaches callbacks for the resolution and/or rejection of the Promise.
-   * @param onfulfilled The callback to execute when the Promise is resolved.
-   * @param onrejected The callback to execute when the Promise is rejected.
-   * @returns A Promise for the completion of which ever callback is executed.
-   */
+ 
   then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>
-  /**
-   * Attaches a callback for only the rejection of the Promise.
-   * @param onrejected The callback to execute when the Promise is rejected.
-   * @returns A Promise for the completion of the callback.
-   */
+
   catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>
-  /**
-   * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-   * resolved value cannot be modified from the callback.
-   * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-   * @returns A Promise for the completion of the callback.
-   */
+
   finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>
 }
 
 
 
 
-/**
- * Fields of the Choice model
- */
 export interface ChoiceFieldRefs {
   readonly id: Prisma.FieldRef<"Choice", 'Int'>
   readonly text: Prisma.FieldRef<"Choice", 'String'>
@@ -1140,419 +791,205 @@ export interface ChoiceFieldRefs {
   readonly questionId: Prisma.FieldRef<"Choice", 'Int'>
 }
     
-
-// Custom InputTypes
-/**
- * Choice findUnique
- */
 export type ChoiceFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+  
   select?: Prisma.ChoiceSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+  
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+   
   include?: Prisma.ChoiceInclude<ExtArgs> | null
-  /**
-   * Filter, which Choice to fetch.
-   */
+   
   where: Prisma.ChoiceWhereUniqueInput
 }
 
-/**
- * Choice findUniqueOrThrow
- */
+ 
 export type ChoiceFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+
   select?: Prisma.ChoiceSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+  
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+   
   include?: Prisma.ChoiceInclude<ExtArgs> | null
-  /**
-   * Filter, which Choice to fetch.
-   */
+
   where: Prisma.ChoiceWhereUniqueInput
 }
 
-/**
- * Choice findFirst
- */
+ 
 export type ChoiceFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+
   select?: Prisma.ChoiceSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+   
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+   
   include?: Prisma.ChoiceInclude<ExtArgs> | null
-  /**
-   * Filter, which Choice to fetch.
-   */
+
   where?: Prisma.ChoiceWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   * 
-   * Determine the order of Choices to fetch.
-   */
+ 
   orderBy?: Prisma.ChoiceOrderByWithRelationInput | Prisma.ChoiceOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   * 
-   * Sets the position for searching for Choices.
-   */
+  
   cursor?: Prisma.ChoiceWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Take `±n` Choices from the position of the cursor.
-   */
+   
   take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Skip the first `n` Choices.
-   */
+ 
   skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-   * 
-   * Filter by unique combinations of Choices.
-   */
+ 
   distinct?: Prisma.ChoiceScalarFieldEnum | Prisma.ChoiceScalarFieldEnum[]
 }
 
-/**
- * Choice findFirstOrThrow
- */
 export type ChoiceFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+  
   select?: Prisma.ChoiceSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+  
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+ 
   include?: Prisma.ChoiceInclude<ExtArgs> | null
-  /**
-   * Filter, which Choice to fetch.
-   */
+  
   where?: Prisma.ChoiceWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   * 
-   * Determine the order of Choices to fetch.
-   */
+ 
   orderBy?: Prisma.ChoiceOrderByWithRelationInput | Prisma.ChoiceOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   * 
-   * Sets the position for searching for Choices.
-   */
+ 
   cursor?: Prisma.ChoiceWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Take `±n` Choices from the position of the cursor.
-   */
+ 
   take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Skip the first `n` Choices.
-   */
+  
   skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-   * 
-   * Filter by unique combinations of Choices.
-   */
+  
   distinct?: Prisma.ChoiceScalarFieldEnum | Prisma.ChoiceScalarFieldEnum[]
 }
 
-/**
- * Choice findMany
- */
+
 export type ChoiceFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+ 
   select?: Prisma.ChoiceSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+  
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+  
   include?: Prisma.ChoiceInclude<ExtArgs> | null
-  /**
-   * Filter, which Choices to fetch.
-   */
+ 
   where?: Prisma.ChoiceWhereInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-   * 
-   * Determine the order of Choices to fetch.
-   */
+ 
   orderBy?: Prisma.ChoiceOrderByWithRelationInput | Prisma.ChoiceOrderByWithRelationInput[]
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-   * 
-   * Sets the position for listing Choices.
-   */
+ 
   cursor?: Prisma.ChoiceWhereUniqueInput
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Take `±n` Choices from the position of the cursor.
-   */
+  
   take?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-   * 
-   * Skip the first `n` Choices.
-   */
+ 
   skip?: number
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-   * 
-   * Filter by unique combinations of Choices.
-   */
+  
   distinct?: Prisma.ChoiceScalarFieldEnum | Prisma.ChoiceScalarFieldEnum[]
 }
 
-/**
- * Choice create
- */
 export type ChoiceCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+ 
   select?: Prisma.ChoiceSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+ 
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+ 
   include?: Prisma.ChoiceInclude<ExtArgs> | null
-  /**
-   * The data needed to create a Choice.
-   */
+
   data: Prisma.XOR<Prisma.ChoiceCreateInput, Prisma.ChoiceUncheckedCreateInput>
 }
 
-/**
- * Choice createMany
- */
 export type ChoiceCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * The data used to create many Choices.
-   */
+ 
   data: Prisma.ChoiceCreateManyInput | Prisma.ChoiceCreateManyInput[]
   skipDuplicates?: boolean
 }
 
-/**
- * Choice createManyAndReturn
- */
 export type ChoiceCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+ 
   select?: Prisma.ChoiceSelectCreateManyAndReturn<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+  
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * The data used to create many Choices.
-   */
+ 
   data: Prisma.ChoiceCreateManyInput | Prisma.ChoiceCreateManyInput[]
   skipDuplicates?: boolean
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+  
   include?: Prisma.ChoiceIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
-/**
- * Choice update
- */
 export type ChoiceUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+ 
   select?: Prisma.ChoiceSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+ 
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+   
   include?: Prisma.ChoiceInclude<ExtArgs> | null
-  /**
-   * The data needed to update a Choice.
-   */
+ 
   data: Prisma.XOR<Prisma.ChoiceUpdateInput, Prisma.ChoiceUncheckedUpdateInput>
-  /**
-   * Choose, which Choice to update.
-   */
+   
   where: Prisma.ChoiceWhereUniqueInput
 }
 
-/**
- * Choice updateMany
- */
+ 
 export type ChoiceUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * The data used to update Choices.
-   */
+   
   data: Prisma.XOR<Prisma.ChoiceUpdateManyMutationInput, Prisma.ChoiceUncheckedUpdateManyInput>
-  /**
-   * Filter which Choices to update
-   */
+  
   where?: Prisma.ChoiceWhereInput
-  /**
-   * Limit how many Choices to update.
-   */
+   
   limit?: number
 }
 
-/**
- * Choice updateManyAndReturn
- */
+ 
 export type ChoiceUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+   
   select?: Prisma.ChoiceSelectUpdateManyAndReturn<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+  
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * The data used to update Choices.
-   */
+  
   data: Prisma.XOR<Prisma.ChoiceUpdateManyMutationInput, Prisma.ChoiceUncheckedUpdateManyInput>
-  /**
-   * Filter which Choices to update
-   */
+  
   where?: Prisma.ChoiceWhereInput
-  /**
-   * Limit how many Choices to update.
-   */
+   
   limit?: number
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+ 
   include?: Prisma.ChoiceIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
-/**
- * Choice upsert
- */
+
 export type ChoiceUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+   
   select?: Prisma.ChoiceSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+   
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+   
   include?: Prisma.ChoiceInclude<ExtArgs> | null
-  /**
-   * The filter to search for the Choice to update in case it exists.
-   */
+  
   where: Prisma.ChoiceWhereUniqueInput
-  /**
-   * In case the Choice found by the `where` argument doesn't exist, create a new Choice with this data.
-   */
+   
   create: Prisma.XOR<Prisma.ChoiceCreateInput, Prisma.ChoiceUncheckedCreateInput>
-  /**
-   * In case the Choice was found with the provided `where` argument, update it with this data.
-   */
+  
   update: Prisma.XOR<Prisma.ChoiceUpdateInput, Prisma.ChoiceUncheckedUpdateInput>
 }
 
-/**
- * Choice delete
- */
+ 
 export type ChoiceDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+   
   select?: Prisma.ChoiceSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+   
   include?: Prisma.ChoiceInclude<ExtArgs> | null
-  /**
-   * Filter which Choice to delete.
-   */
+   
   where: Prisma.ChoiceWhereUniqueInput
 }
 
-/**
- * Choice deleteMany
- */
+
 export type ChoiceDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Filter which Choices to delete
-   */
+
   where?: Prisma.ChoiceWhereInput
-  /**
-   * Limit how many Choices to delete.
-   */
+  
   limit?: number
 }
 
-/**
- * Choice.selectedIn
- */
+
 export type Choice$selectedInArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
+  
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+  
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
   where?: Prisma.AttemptAnswerWhereInput
   orderBy?: Prisma.AttemptAnswerOrderByWithRelationInput | Prisma.AttemptAnswerOrderByWithRelationInput[]
@@ -1562,21 +999,11 @@ export type Choice$selectedInArgs<ExtArgs extends runtime.Types.Extensions.Inter
   distinct?: Prisma.AttemptAnswerScalarFieldEnum | Prisma.AttemptAnswerScalarFieldEnum[]
 }
 
-/**
- * Choice.correctIn
- */
 export type Choice$correctInArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AttemptAnswer
-   */
   select?: Prisma.AttemptAnswerSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AttemptAnswer
-   */
+
   omit?: Prisma.AttemptAnswerOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+  
   include?: Prisma.AttemptAnswerInclude<ExtArgs> | null
   where?: Prisma.AttemptAnswerWhereInput
   orderBy?: Prisma.AttemptAnswerOrderByWithRelationInput | Prisma.AttemptAnswerOrderByWithRelationInput[]
@@ -1586,20 +1013,11 @@ export type Choice$correctInArgs<ExtArgs extends runtime.Types.Extensions.Intern
   distinct?: Prisma.AttemptAnswerScalarFieldEnum | Prisma.AttemptAnswerScalarFieldEnum[]
 }
 
-/**
- * Choice without action
- */
 export type ChoiceDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Choice
-   */
+ 
   select?: Prisma.ChoiceSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Choice
-   */
+
   omit?: Prisma.ChoiceOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
+
   include?: Prisma.ChoiceInclude<ExtArgs> | null
 }

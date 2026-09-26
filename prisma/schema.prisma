@@ -47,6 +47,7 @@ model Choice {
 model QuizAttempt {
   id              Int             @id @default(autoincrement())
   quizId          Int
+  userName        String          @default("Guest")
   totalQuestions  Int
   correctAnswers  Int
   incorrectAnswers Int
@@ -57,6 +58,7 @@ model QuizAttempt {
   quiz            Quiz            @relation(fields: [quizId], references: [id], onDelete: Cascade)
   answers         AttemptAnswer[]
   @@index([quizId, completedAt])
+  @@index([userName, completedAt])
 }
 
 model AttemptAnswer {

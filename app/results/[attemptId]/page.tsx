@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import QuestionIndicators from "@/app/components/QuestionIndicators";
 
 export const dynamic = "force-dynamic";
 
@@ -13,33 +14,41 @@ export default async function ResultsPage({ params }: ResultsPageProps) {
 
   const attempt = await prisma.quizAttempt.findUnique({
     where: { id },
-    include: { quiz: true },
+    include: {
+      quiz: true,
+      answers: { orderBy: { questionId: "asc" }, select: { questionId: true, isCorrect: true } },
+    },
   });
   if (!attempt) notFound();
 
   const passed = attempt.percentage >= 60;
   return (
-    <main className="min-h-screen bg-transparent px-6 py-10 text-white">
+    <main className="min-h-screen px-5 py-8 text-slate-900 sm:px-8">
       <div className="mx-auto max-w-2xl">
-        <Link href="/" className="text-sm text-slate-400 hover:text-white">Back to quizzes</Link>
-        <section className="mt-8 rounded-3xl border border-white/10 bg-white/[0.04] p-8 text-center md:p-12">
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-violet-300">Quiz completed</p>
-          <h1 className="mt-4 text-4xl font-bold">{attempt.quiz.title}</h1>
-          <div className="mx-auto mt-10 flex h-40 w-40 flex-col items-center justify-center rounded-full border-8 border-violet-400/30 bg-violet-400/10 shadow-[0_0_50px_rgb(139_92_246_/_0.18)]">
-            <strong className="text-4xl">{attempt.percentage}%</strong>
-            <span className="mt-1 text-sm text-slate-400">score</span>
+        <Link href="/" className="text-sm font-medium text-blue-700 hover:text-blue-900">← My Quiz App</Link>
+        <section className="mt-8 rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm sm:p-10">
+          <p className="text-sm font-semibold uppercase text-blue-700">Quiz completed!</p>
+          <h1 className="mt-3 text-3xl font-bold">{attempt.quiz.title}</h1>
+          <p className="mt-2 text-slate-600">Quiz history for {attempt.userName}</p>
+          <div className="mt-5 flex justify-center">
+            <QuestionIndicators statuses={attempt.answers.map((answer) => answer.isCorrect ? "correct" : "incorrect")} />
           </div>
-          <p className={`mt-6 text-lg font-semibold ${passed ? "text-emerald-300" : "text-rose-300"}`}>
-            {passed ? "Passed" : "Keep practicing"}
+          <div className="mx-auto mt-8 inline-flex min-w-40 flex-col items-center rounded-2xl bg-blue-50 px-7 py-5">
+            <strong className="text-4xl text-blue-800">{attempt.score} / {attempt.totalQuestions}</strong>
+            <span className="mt-1 text-sm text-slate-600">Final score</span>
+          </div>
+          <p className={`mt-5 text-base font-medium ${passed ? "text-emerald-700" : "text-slate-600"}`}>
+            {passed ? "Great work, you’ve got this." : "Keep practicing. You’re building momentum."}
           </p>
-          <div className="mt-8 grid grid-cols-3 gap-3 text-center">
-            <div className="rounded-2xl bg-white/5 p-4"><strong className="block text-2xl">{attempt.score}/{attempt.totalQuestions}</strong><span className="text-xs text-slate-400">Score</span></div>
-            <div className="rounded-2xl bg-white/5 p-4"><strong className="block text-2xl text-emerald-300">{attempt.correctAnswers}</strong><span className="text-xs text-slate-400">Correct</span></div>
-            <div className="rounded-2xl bg-white/5 p-4"><strong className="block text-2xl text-rose-300">{attempt.incorrectAnswers}</strong><span className="text-xs text-slate-400">Incorrect</span></div>
+          <div className="mt-8 grid grid-cols-3 gap-3 border-y border-slate-100 py-5 text-center">
+            <div><strong className="block text-2xl text-emerald-700">{attempt.correctAnswers}</strong><span className="text-sm text-slate-500">Correct</span></div>
+            <div><strong className="block text-2xl text-rose-700">{attempt.incorrectAnswers}</strong><span className="text-sm text-slate-500">Wrong</span></div>
+            <div><strong className="block text-2xl text-blue-800">{attempt.percentage}%</strong><span className="text-sm text-slate-500">Percentage</span></div>
           </div>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <Link href={`/results/${attempt.id}/review`} className="rounded-xl bg-violet-300 px-5 py-3 font-semibold text-[#180d2d] hover:bg-violet-200">Review answers</Link>
-            <Link href={`/quiz/${attempt.quizId}`} className="rounded-xl border border-white/10 px-5 py-3 font-semibold text-slate-200 hover:border-white/30">Retake quiz</Link>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <Link href={`/setup?name=${encodeURIComponent(attempt.userName)}`} className="rounded-xl bg-blue-700 px-5 py-3 font-semibold text-white hover:bg-blue-800">Try Again</Link>
+            <Link href={`/results?name=${encodeURIComponent(attempt.userName)}`} className="rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-700 hover:bg-slate-50">My History</Link>
+            <Link href="/" className="rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-700 hover:bg-slate-50">Back to Home</Link>
           </div>
         </section>
       </div>

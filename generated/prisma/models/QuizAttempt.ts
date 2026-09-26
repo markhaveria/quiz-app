@@ -49,6 +49,7 @@ export type QuizAttemptSumAggregateOutputType = {
 export type QuizAttemptMinAggregateOutputType = {
   id: number | null
   quizId: number | null
+  userName: string | null
   totalQuestions: number | null
   correctAnswers: number | null
   incorrectAnswers: number | null
@@ -61,6 +62,7 @@ export type QuizAttemptMinAggregateOutputType = {
 export type QuizAttemptMaxAggregateOutputType = {
   id: number | null
   quizId: number | null
+  userName: string | null
   totalQuestions: number | null
   correctAnswers: number | null
   incorrectAnswers: number | null
@@ -73,6 +75,7 @@ export type QuizAttemptMaxAggregateOutputType = {
 export type QuizAttemptCountAggregateOutputType = {
   id: number
   quizId: number
+  userName: number
   totalQuestions: number
   correctAnswers: number
   incorrectAnswers: number
@@ -107,6 +110,7 @@ export type QuizAttemptSumAggregateInputType = {
 export type QuizAttemptMinAggregateInputType = {
   id?: true
   quizId?: true
+  userName?: true
   totalQuestions?: true
   correctAnswers?: true
   incorrectAnswers?: true
@@ -119,6 +123,7 @@ export type QuizAttemptMinAggregateInputType = {
 export type QuizAttemptMaxAggregateInputType = {
   id?: true
   quizId?: true
+  userName?: true
   totalQuestions?: true
   correctAnswers?: true
   incorrectAnswers?: true
@@ -131,6 +136,7 @@ export type QuizAttemptMaxAggregateInputType = {
 export type QuizAttemptCountAggregateInputType = {
   id?: true
   quizId?: true
+  userName?: true
   totalQuestions?: true
   correctAnswers?: true
   incorrectAnswers?: true
@@ -230,6 +236,7 @@ export type QuizAttemptGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 export type QuizAttemptGroupByOutputType = {
   id: number
   quizId: number
+  userName: string
   totalQuestions: number
   correctAnswers: number
   incorrectAnswers: number
@@ -265,6 +272,7 @@ export type QuizAttemptWhereInput = {
   NOT?: Prisma.QuizAttemptWhereInput | Prisma.QuizAttemptWhereInput[]
   id?: Prisma.IntFilter<"QuizAttempt"> | number
   quizId?: Prisma.IntFilter<"QuizAttempt"> | number
+  userName?: Prisma.StringFilter<"QuizAttempt"> | string
   totalQuestions?: Prisma.IntFilter<"QuizAttempt"> | number
   correctAnswers?: Prisma.IntFilter<"QuizAttempt"> | number
   incorrectAnswers?: Prisma.IntFilter<"QuizAttempt"> | number
@@ -279,6 +287,7 @@ export type QuizAttemptWhereInput = {
 export type QuizAttemptOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   quizId?: Prisma.SortOrder
+  userName?: Prisma.SortOrder
   totalQuestions?: Prisma.SortOrder
   correctAnswers?: Prisma.SortOrder
   incorrectAnswers?: Prisma.SortOrder
@@ -296,6 +305,7 @@ export type QuizAttemptWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.QuizAttemptWhereInput[]
   NOT?: Prisma.QuizAttemptWhereInput | Prisma.QuizAttemptWhereInput[]
   quizId?: Prisma.IntFilter<"QuizAttempt"> | number
+  userName?: Prisma.StringFilter<"QuizAttempt"> | string
   totalQuestions?: Prisma.IntFilter<"QuizAttempt"> | number
   correctAnswers?: Prisma.IntFilter<"QuizAttempt"> | number
   incorrectAnswers?: Prisma.IntFilter<"QuizAttempt"> | number
@@ -310,6 +320,7 @@ export type QuizAttemptWhereUniqueInput = Prisma.AtLeast<{
 export type QuizAttemptOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   quizId?: Prisma.SortOrder
+  userName?: Prisma.SortOrder
   totalQuestions?: Prisma.SortOrder
   correctAnswers?: Prisma.SortOrder
   incorrectAnswers?: Prisma.SortOrder
@@ -330,6 +341,7 @@ export type QuizAttemptScalarWhereWithAggregatesInput = {
   NOT?: Prisma.QuizAttemptScalarWhereWithAggregatesInput | Prisma.QuizAttemptScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"QuizAttempt"> | number
   quizId?: Prisma.IntWithAggregatesFilter<"QuizAttempt"> | number
+  userName?: Prisma.StringWithAggregatesFilter<"QuizAttempt"> | string
   totalQuestions?: Prisma.IntWithAggregatesFilter<"QuizAttempt"> | number
   correctAnswers?: Prisma.IntWithAggregatesFilter<"QuizAttempt"> | number
   incorrectAnswers?: Prisma.IntWithAggregatesFilter<"QuizAttempt"> | number
@@ -340,6 +352,7 @@ export type QuizAttemptScalarWhereWithAggregatesInput = {
 }
 
 export type QuizAttemptCreateInput = {
+  userName?: string
   totalQuestions: number
   correctAnswers: number
   incorrectAnswers: number
@@ -354,6 +367,7 @@ export type QuizAttemptCreateInput = {
 export type QuizAttemptUncheckedCreateInput = {
   id?: number
   quizId: number
+  userName?: string
   totalQuestions: number
   correctAnswers: number
   incorrectAnswers: number
@@ -365,6 +379,7 @@ export type QuizAttemptUncheckedCreateInput = {
 }
 
 export type QuizAttemptUpdateInput = {
+  userName?: Prisma.StringFieldUpdateOperationsInput | string
   totalQuestions?: Prisma.IntFieldUpdateOperationsInput | number
   correctAnswers?: Prisma.IntFieldUpdateOperationsInput | number
   incorrectAnswers?: Prisma.IntFieldUpdateOperationsInput | number
@@ -379,6 +394,7 @@ export type QuizAttemptUpdateInput = {
 export type QuizAttemptUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   quizId?: Prisma.IntFieldUpdateOperationsInput | number
+  userName?: Prisma.StringFieldUpdateOperationsInput | string
   totalQuestions?: Prisma.IntFieldUpdateOperationsInput | number
   correctAnswers?: Prisma.IntFieldUpdateOperationsInput | number
   incorrectAnswers?: Prisma.IntFieldUpdateOperationsInput | number
@@ -392,6 +408,7 @@ export type QuizAttemptUncheckedUpdateInput = {
 export type QuizAttemptCreateManyInput = {
   id?: number
   quizId: number
+  userName?: string
   totalQuestions: number
   correctAnswers: number
   incorrectAnswers: number
@@ -402,6 +419,7 @@ export type QuizAttemptCreateManyInput = {
 }
 
 export type QuizAttemptUpdateManyMutationInput = {
+  userName?: Prisma.StringFieldUpdateOperationsInput | string
   totalQuestions?: Prisma.IntFieldUpdateOperationsInput | number
   correctAnswers?: Prisma.IntFieldUpdateOperationsInput | number
   incorrectAnswers?: Prisma.IntFieldUpdateOperationsInput | number
@@ -414,6 +432,7 @@ export type QuizAttemptUpdateManyMutationInput = {
 export type QuizAttemptUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   quizId?: Prisma.IntFieldUpdateOperationsInput | number
+  userName?: Prisma.StringFieldUpdateOperationsInput | string
   totalQuestions?: Prisma.IntFieldUpdateOperationsInput | number
   correctAnswers?: Prisma.IntFieldUpdateOperationsInput | number
   incorrectAnswers?: Prisma.IntFieldUpdateOperationsInput | number
@@ -436,6 +455,7 @@ export type QuizAttemptOrderByRelationAggregateInput = {
 export type QuizAttemptCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   quizId?: Prisma.SortOrder
+  userName?: Prisma.SortOrder
   totalQuestions?: Prisma.SortOrder
   correctAnswers?: Prisma.SortOrder
   incorrectAnswers?: Prisma.SortOrder
@@ -458,6 +478,7 @@ export type QuizAttemptAvgOrderByAggregateInput = {
 export type QuizAttemptMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   quizId?: Prisma.SortOrder
+  userName?: Prisma.SortOrder
   totalQuestions?: Prisma.SortOrder
   correctAnswers?: Prisma.SortOrder
   incorrectAnswers?: Prisma.SortOrder
@@ -470,6 +491,7 @@ export type QuizAttemptMaxOrderByAggregateInput = {
 export type QuizAttemptMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   quizId?: Prisma.SortOrder
+  userName?: Prisma.SortOrder
   totalQuestions?: Prisma.SortOrder
   correctAnswers?: Prisma.SortOrder
   incorrectAnswers?: Prisma.SortOrder
@@ -563,6 +585,7 @@ export type QuizAttemptUpdateOneRequiredWithoutAnswersNestedInput = {
 }
 
 export type QuizAttemptCreateWithoutQuizInput = {
+  userName?: string
   totalQuestions: number
   correctAnswers: number
   incorrectAnswers: number
@@ -575,6 +598,7 @@ export type QuizAttemptCreateWithoutQuizInput = {
 
 export type QuizAttemptUncheckedCreateWithoutQuizInput = {
   id?: number
+  userName?: string
   totalQuestions: number
   correctAnswers: number
   incorrectAnswers: number
@@ -617,6 +641,7 @@ export type QuizAttemptScalarWhereInput = {
   NOT?: Prisma.QuizAttemptScalarWhereInput | Prisma.QuizAttemptScalarWhereInput[]
   id?: Prisma.IntFilter<"QuizAttempt"> | number
   quizId?: Prisma.IntFilter<"QuizAttempt"> | number
+  userName?: Prisma.StringFilter<"QuizAttempt"> | string
   totalQuestions?: Prisma.IntFilter<"QuizAttempt"> | number
   correctAnswers?: Prisma.IntFilter<"QuizAttempt"> | number
   incorrectAnswers?: Prisma.IntFilter<"QuizAttempt"> | number
@@ -627,6 +652,7 @@ export type QuizAttemptScalarWhereInput = {
 }
 
 export type QuizAttemptCreateWithoutAnswersInput = {
+  userName?: string
   totalQuestions: number
   correctAnswers: number
   incorrectAnswers: number
@@ -640,6 +666,7 @@ export type QuizAttemptCreateWithoutAnswersInput = {
 export type QuizAttemptUncheckedCreateWithoutAnswersInput = {
   id?: number
   quizId: number
+  userName?: string
   totalQuestions: number
   correctAnswers: number
   incorrectAnswers: number
@@ -666,6 +693,7 @@ export type QuizAttemptUpdateToOneWithWhereWithoutAnswersInput = {
 }
 
 export type QuizAttemptUpdateWithoutAnswersInput = {
+  userName?: Prisma.StringFieldUpdateOperationsInput | string
   totalQuestions?: Prisma.IntFieldUpdateOperationsInput | number
   correctAnswers?: Prisma.IntFieldUpdateOperationsInput | number
   incorrectAnswers?: Prisma.IntFieldUpdateOperationsInput | number
@@ -679,6 +707,7 @@ export type QuizAttemptUpdateWithoutAnswersInput = {
 export type QuizAttemptUncheckedUpdateWithoutAnswersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   quizId?: Prisma.IntFieldUpdateOperationsInput | number
+  userName?: Prisma.StringFieldUpdateOperationsInput | string
   totalQuestions?: Prisma.IntFieldUpdateOperationsInput | number
   correctAnswers?: Prisma.IntFieldUpdateOperationsInput | number
   incorrectAnswers?: Prisma.IntFieldUpdateOperationsInput | number
@@ -690,6 +719,7 @@ export type QuizAttemptUncheckedUpdateWithoutAnswersInput = {
 
 export type QuizAttemptCreateManyQuizInput = {
   id?: number
+  userName?: string
   totalQuestions: number
   correctAnswers: number
   incorrectAnswers: number
@@ -700,6 +730,7 @@ export type QuizAttemptCreateManyQuizInput = {
 }
 
 export type QuizAttemptUpdateWithoutQuizInput = {
+  userName?: Prisma.StringFieldUpdateOperationsInput | string
   totalQuestions?: Prisma.IntFieldUpdateOperationsInput | number
   correctAnswers?: Prisma.IntFieldUpdateOperationsInput | number
   incorrectAnswers?: Prisma.IntFieldUpdateOperationsInput | number
@@ -712,6 +743,7 @@ export type QuizAttemptUpdateWithoutQuizInput = {
 
 export type QuizAttemptUncheckedUpdateWithoutQuizInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  userName?: Prisma.StringFieldUpdateOperationsInput | string
   totalQuestions?: Prisma.IntFieldUpdateOperationsInput | number
   correctAnswers?: Prisma.IntFieldUpdateOperationsInput | number
   incorrectAnswers?: Prisma.IntFieldUpdateOperationsInput | number
@@ -724,6 +756,7 @@ export type QuizAttemptUncheckedUpdateWithoutQuizInput = {
 
 export type QuizAttemptUncheckedUpdateManyWithoutQuizInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  userName?: Prisma.StringFieldUpdateOperationsInput | string
   totalQuestions?: Prisma.IntFieldUpdateOperationsInput | number
   correctAnswers?: Prisma.IntFieldUpdateOperationsInput | number
   incorrectAnswers?: Prisma.IntFieldUpdateOperationsInput | number
@@ -767,6 +800,7 @@ export type QuizAttemptCountOutputTypeCountAnswersArgs<ExtArgs extends runtime.T
 export type QuizAttemptSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   quizId?: boolean
+  userName?: boolean
   totalQuestions?: boolean
   correctAnswers?: boolean
   incorrectAnswers?: boolean
@@ -782,6 +816,7 @@ export type QuizAttemptSelect<ExtArgs extends runtime.Types.Extensions.InternalA
 export type QuizAttemptSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   quizId?: boolean
+  userName?: boolean
   totalQuestions?: boolean
   correctAnswers?: boolean
   incorrectAnswers?: boolean
@@ -795,6 +830,7 @@ export type QuizAttemptSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
 export type QuizAttemptSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   quizId?: boolean
+  userName?: boolean
   totalQuestions?: boolean
   correctAnswers?: boolean
   incorrectAnswers?: boolean
@@ -808,6 +844,7 @@ export type QuizAttemptSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
 export type QuizAttemptSelectScalar = {
   id?: boolean
   quizId?: boolean
+  userName?: boolean
   totalQuestions?: boolean
   correctAnswers?: boolean
   incorrectAnswers?: boolean
@@ -817,7 +854,7 @@ export type QuizAttemptSelectScalar = {
   completedAt?: boolean
 }
 
-export type QuizAttemptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "quizId" | "totalQuestions" | "correctAnswers" | "incorrectAnswers" | "score" | "percentage" | "startedAt" | "completedAt", ExtArgs["result"]["quizAttempt"]>
+export type QuizAttemptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "quizId" | "userName" | "totalQuestions" | "correctAnswers" | "incorrectAnswers" | "score" | "percentage" | "startedAt" | "completedAt", ExtArgs["result"]["quizAttempt"]>
 export type QuizAttemptInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   quiz?: boolean | Prisma.QuizDefaultArgs<ExtArgs>
   answers?: boolean | Prisma.QuizAttempt$answersArgs<ExtArgs>
@@ -839,6 +876,7 @@ export type $QuizAttemptPayload<ExtArgs extends runtime.Types.Extensions.Interna
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     quizId: number
+    userName: string
     totalQuestions: number
     correctAnswers: number
     incorrectAnswers: number
@@ -1273,6 +1311,7 @@ export interface Prisma__QuizAttemptClient<T, Null = never, ExtArgs extends runt
 export interface QuizAttemptFieldRefs {
   readonly id: Prisma.FieldRef<"QuizAttempt", 'Int'>
   readonly quizId: Prisma.FieldRef<"QuizAttempt", 'Int'>
+  readonly userName: Prisma.FieldRef<"QuizAttempt", 'String'>
   readonly totalQuestions: Prisma.FieldRef<"QuizAttempt", 'Int'>
   readonly correctAnswers: Prisma.FieldRef<"QuizAttempt", 'Int'>
   readonly incorrectAnswers: Prisma.FieldRef<"QuizAttempt", 'Int'>
