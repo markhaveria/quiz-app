@@ -18,7 +18,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen bg-transparent text-white">
-      {/* Navbar */}
+      
       <nav className="border-b border-violet-200/10 bg-[#090716]/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
           <Link href="/" className="text-2xl font-bold tracking-tight">
@@ -37,7 +37,7 @@ export default async function Home() {
         </div>
       </nav>
 
-      {/* Hero */}
+    
       <section className="relative overflow-hidden">
         <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-violet-500/15 blur-3xl" />
         <div className="absolute -right-32 top-20 h-96 w-96 rounded-full bg-fuchsia-500/10 blur-3xl" />
@@ -64,7 +64,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Quizzes */}
+
       <section className="mx-auto max-w-6xl px-6 pb-20">
         <div className="mb-8">
           <h2 className="text-3xl font-bold">Available Quizzes</h2>
@@ -126,10 +126,10 @@ export default async function Home() {
         )}
       </section>
 
-      {/* Footer */}
+      
       <footer className="border-t border-white/10 py-8">
         <div className="mx-auto max-w-6xl px-6 text-center text-sm text-slate-500">
-          QuizLab © 2026
+          Quiz App © 2026
         </div>
       </footer>
     </main>
